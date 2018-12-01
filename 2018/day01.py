@@ -5,10 +5,10 @@ startingFreqs = []
 
 print('starting frequency: ', startingFreq)
 
-# changes = inputFile.read()
-# changes = changes.splitlines()
+changes = inputFile.read()
+changes = changes.splitlines()
 # changes = [3, 3, 4, -2, -4]
-changes = [7, 7, -2, -7, -4]
+# changes = [7, 7, -2, -7, -4]
 
 def doChanges(freq, freqs, dupe):
   for c in changes:
