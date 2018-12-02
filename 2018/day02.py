@@ -52,7 +52,7 @@ def compareBoxes(boxA, boxB):
     isDifferentByOneLetter = True
   return(isDifferentByOneLetter, boxA, boxB)
 
-inputs = testInput2
+# inputs = testInput2
 for j in range(len(inputs)-1):
   for k in range(len(inputs)-j):
     (isDifferentByOneLetter, boxA, boxB) = compareBoxes(inputs[j], inputs[j+k])
