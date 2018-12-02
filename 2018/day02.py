@@ -35,3 +35,27 @@ checksum = exactlyTwo * exactlyThree
 print('checksum = ', checksum)
 
 
+# part 2
+testInput2 = ['acbde', 'fghij', 'klmno', 'pqrst', 'fguij', 'axcye', 'wvxyz']
+
+def compareBoxes(boxA, boxB):
+  isDifferentByOneLetter = False
+  commonLetters = 0
+  tagLength = len(boxA)
+  for i in range(tagLength):
+    if boxA[i] is boxB[i]:
+      commonLetters = commonLetters + 1
+  # print('tag length: ', tagLength)
+  # print('common letters: ', commonLetters)
+  if commonLetters is tagLength - 1:
+    # print(boxA, boxB)
+    isDifferentByOneLetter = True
+  return(isDifferentByOneLetter, boxA, boxB)
+
+inputs = testInput2
+for j in range(len(inputs)-1):
+  for k in range(len(inputs)-j):
+    (isDifferentByOneLetter, boxA, boxB) = compareBoxes(inputs[j], inputs[j+k])
+    if isDifferentByOneLetter is True:
+      print(boxA)
+      print(boxB)
