@@ -7,7 +7,11 @@ exactlyThree = 0
 
 checksum = exactlyTwo * exactlyThree
 
-for i in testInput:
+inputs = inputFile.read()
+inputs = inputs.splitlines()
+
+# for i in testInput:
+for i in inputs:
   isTwo = False
   isThree = False
 
@@ -18,7 +22,7 @@ for i in testInput:
     if c is 3:
       isThree = True
 
-  print(i, isTwo, isThree)
+  # print(i, isTwo, isThree)
   if isTwo is True:
     exactlyTwo = exactlyTwo + 1
   if isThree is True:
