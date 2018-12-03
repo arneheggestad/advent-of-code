@@ -1,8 +1,24 @@
-inputFile = open('./data/input02.txt')
+inputFile = open('./data/input03.txt')
+import re
 
 testClaims = ['#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2']
-claims = testClaims
 
-# claims = inputFile.read()
-# claims = claims.splitlines()
+# claims = testClaims
 
+claims = inputFile.read()
+claims = claims.splitlines()
+
+def parseClaim(claim):
+  regex = r"#(\d*) @ (\d*),(\d*): (\d*)x(\d*)"
+  match = re.search(regex, claim)
+  (claimNumber, xStart, yStart, width, height) = match.groups()
+  claimNumber = int(claimNumber)
+  xStart = int(xStart)
+  yStart = int(yStart)
+  width = int(width)
+  height = int(height)
+  return (claimNumber, xStart, yStart, width, height)
+
+for claim in claims:
+  parsedClaim = (parseClaim(claim))
+  print(parsedClaim)
