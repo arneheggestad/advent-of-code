@@ -3,10 +3,10 @@ import re
 
 testClaims = ['#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2']
 
-claims = testClaims
+# claims = testClaims
 
-# claims = inputFile.read()
-# claims = claims.splitlines()
+claims = inputFile.read()
+claims = claims.splitlines()
 
 def parseClaim(claim):
   regex = r"#(\d*) @ (\d*),(\d*): (\d*)x(\d*)"
@@ -27,14 +27,20 @@ for claim in claims:
   # print(parsedClaim)
   (claimNumber, xStart, yStart, width, height) = parsedClaim
 
+  claimConflicts = False
+
   for i in range(0, width):
     for j in range(0, height):
       newClaim = (xStart + i, yStart + j)
       if newClaim in claimedArea:
         conflicts.append({'claim': claimNumber, 'coords': newClaim})
+        claimConflicts = True
       else:
         claimedArea.append(newClaim)
 
-print(claimedArea)
-print(conflicts)
+  if claimConflicts is True:
+    print(claimNumber, ' conflicts with previous claims')
+
+# print(claimedArea)
+# print(conflicts)
 print('duplicate area: ', len(conflicts))
