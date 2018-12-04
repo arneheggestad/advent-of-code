@@ -21,6 +21,7 @@ def parseClaim(claim):
 
 claimedArea = []
 conflicts = []
+duplicatedArea = []
 
 for claim in claims:
   parsedClaim = (parseClaim(claim))
@@ -35,6 +36,8 @@ for claim in claims:
       if newClaim in claimedArea:
         conflicts.append({'claim': claimNumber, 'coords': newClaim})
         claimConflicts = True
+        if newClaim not in duplicatedArea:
+          duplicatedArea.append(newClaim)
       else:
         claimedArea.append(newClaim)
 
@@ -43,4 +46,4 @@ for claim in claims:
 
 # print(claimedArea)
 # print(conflicts)
-print('duplicate area: ', len(conflicts))
+print('duplicate area: ', len(duplicatedArea))
