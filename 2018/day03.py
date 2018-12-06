@@ -41,8 +41,8 @@ for claim in claims:
       else:
         claimedArea.append(newClaim)
 
-  if claimConflicts is True:
-    print(claimNumber, ' conflicts with previous claims')
+  if claimConflicts is False:
+    print(claimNumber, '')
 
 # print(claimedArea)
 # print(conflicts)
